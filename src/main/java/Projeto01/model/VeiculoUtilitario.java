@@ -18,4 +18,9 @@ public class VeiculoUtilitario extends VeiculoImpl {
     public int getNroEixos() {
         return nroEixos;
     }
+
+    @Override
+    public String toString(){
+        return super.toString() + "| Capacidade de carga(TON): "+ this.capCargaTon+"| Eixos: "+this.nroEixos;
+    }
 }

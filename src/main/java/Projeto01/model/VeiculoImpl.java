@@ -22,7 +22,7 @@ public abstract class VeiculoImpl implements Veiculo {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Tipo: "+this.getClass().getSimpleName()+ "\n\tPlaca: "+this.placa+"| Marca: "+this.marca+"| Modelo: "+this.modelo+"| Ano: "+this.ano+"| Valor: "+this.valor;
     }
 
     @Override
