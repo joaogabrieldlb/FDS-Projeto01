@@ -8,14 +8,9 @@ import src.main.java.Projeto01.model.Veiculo;
 public class InterfaceDoSistema {
     
     private List<Veiculo> listaDaConsulta;
-    private CatalogoVeiculos cv;
+    private CatalogoVeiculos cv = new CatalogoVeiculos();
     private Scanner sc = new Scanner(System.in);
     private String resposta;
-
-    public InterfaceDoSistema() {
-        cv = new CatalogoVeiculos();
-        
-    }
 
     public void executa() {
         while(true) {
@@ -51,30 +46,40 @@ public class InterfaceDoSistema {
     }
 
     private boolean consulta(String tipoDaConsulta) {
-        while(true) {
-            if(tipoDaConsulta.equals("1")){
-                if(consultaPorPlaca() == null) {
-                    System.out.println("Erro: Veículo não encontrado no sistema!" + System.lineSeparator() +
-                    "Tente novamente..." + System.lineSeparator());
-                    return false;
-                }
-                System.out.println(consultaPorPlaca());
-                return true;
+        if(tipoDaConsulta.equals("1")){
+            Veiculo v = consultaPorPlaca();
+            if(v == null) {
+                System.out.println("Erro: Veículo não encontrado no sistema!" + System.lineSeparator() +
+                "Tente novamente..." + System.lineSeparator());
+                return false;
             }
-
-            //TODO: if(tipoDaConsulta.equals("2")) System.out.print("Marca do veículo: ");
-            
-            //TODO: if(tipoDaConsulta.equals("3")) System.out.print("Ano de Fabricação: ");
-            /* TODO: if(tipoDaConsulta.equals("4")) {
-                System.out.println("1. Veículo Passeio");
-                System.out.println("2. Veículo Passageiros");
-                System.out.println("3. Veículo Utilitário");
-                System.out.print("Tipo do veículo: ");
-            }
-            */
-
-            if(resposta.equals("0")) return false;
+            System.out.println(v);
+            return true;
         }
+        
+        if(tipoDaConsulta.equals("2")) {
+            listaDaConsulta = consultaPorMarca();
+        }
+        
+        if(tipoDaConsulta.equals("3")) {
+            listaDaConsulta = consultaPorAnoDeFabricacao();
+        }
+        
+        if(tipoDaConsulta.equals("4")) {
+            listaDaConsulta = consultaPorTipo();
+        }
+        
+        if(listaDaConsulta.isEmpty() && (tipoDaConsulta.equals("2") || tipoDaConsulta.equals("3") || tipoDaConsulta.equals("4"))) {
+            System.out.println("Erro: Nenhum veículo foi encontrado no sistema!" + System.lineSeparator() +
+            "Tente novamente..." + System.lineSeparator());
+            return false;
+        } else if(tipoDaConsulta.equals("2") || tipoDaConsulta.equals("3") || tipoDaConsulta.equals("4")) {
+            listaDaConsulta.forEach(veiculo -> System.out.println(veiculo));
+            return true;
+        }
+        
+        if(resposta.equals("0")) return false;
+        return false;
     }
 
     private Veiculo consultaPorPlaca() {
@@ -82,6 +87,44 @@ public class InterfaceDoSistema {
         resposta = sc.nextLine();
         System.out.println();
         return cv.consultaPorPlaca(resposta);
+    }
+
+    private List<Veiculo> consultaPorMarca() {
+        System.out.print("Marca do veículo: ");
+        resposta = sc.nextLine();
+        System.out.println();
+        return cv.consultaPorMarca(resposta);
+    }
+
+    private List<Veiculo> consultaPorAnoDeFabricacao() {
+        System.out.print("Ano de Fabricação: ");
+        resposta = sc.nextLine();
+        int ano = Integer.parseInt(resposta);
+        System.out.println();
+        return cv.consultaPorAno(ano);
+    }
+
+    private List<Veiculo> consultaPorTipo() {
+        System.out.println("1. Veículo Passeio");
+        System.out.println("2. Veículo Passageiros");
+        System.out.println("3. Veículo Utilitário");
+        System.out.print("Tipo do veículo: ");
+        resposta = sc.nextLine();
+        System.out.println();
+        switch(resposta) {
+            case "1":
+            resposta = "VeiculoPasseio";
+            break;
+            case "2":
+            resposta = "VeiculoPassageiros";
+            break;
+            case "3":
+            resposta = "VeiculoUtilitario";
+            break;
+            default:
+            resposta = null;
+        }
+        return cv.consultaPorTipo(resposta);
     }
 
 }
