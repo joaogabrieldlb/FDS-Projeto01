@@ -1,18 +1,18 @@
 package src.main.java.Projeto01.model;
 
 public class VeiculoUtilitario extends VeiculoImpl {
-    private int capCargaTon;
+    private double capCargaKg;
     private int nroEixos;
     
-    public VeiculoUtilitario(String placa, String marca, String modelo, int ano, double valor, int capCargaTon,
+    public VeiculoUtilitario(String placa, String marca, String modelo, int ano, double valor, double capCargaKg,
             int nroEixos) {
         super(placa, marca, modelo, ano, valor);
-        this.capCargaTon = capCargaTon;
+        this.capCargaKg = capCargaKg;
         this.nroEixos = nroEixos;
     }
 
-    public int getCapCargaTon() {
-        return capCargaTon;
+    public double getCapCargaKg() {
+        return capCargaKg;
     }
 
     public int getNroEixos() {
@@ -21,6 +21,6 @@ public class VeiculoUtilitario extends VeiculoImpl {
 
     @Override
     public String toString(){
-        return super.toString() + "| Capacidade de carga(TON): "+ this.capCargaTon+"| Eixos: "+this.nroEixos;
+        return super.toString() + "| Capacidade de carga(Kg): "+ this.capCargaKg +"| Eixos: "+this.nroEixos;
     }
 }
