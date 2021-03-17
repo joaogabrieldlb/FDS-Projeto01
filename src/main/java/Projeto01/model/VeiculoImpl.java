@@ -50,8 +50,6 @@ public abstract class VeiculoImpl implements Veiculo {
         return this.valor;
     }
 
-    
-
 
     
 }
