@@ -23,12 +23,12 @@ public class InterfaceDoSistema {
 
     private boolean menuConsulta() {
         while(true) {
-            System.out.println("--= Menu de Consulta =--" + System.lineSeparator());
+            System.out.println("--= Menu de Consulta =--");
             System.out.println("Digite:");
             System.out.println("1. Consultar por placa");
             System.out.println("2. Consultar por marca");
-            System.out.println("3. Consultar por ano de \nfabricação");
-            System.out.println("4. Consultar por tipo" + System.lineSeparator());
+            System.out.println("3. Consultar por ano de " + System.lineSeparator() + "fabricação");
+            System.out.println("4. Consultar por tipo");
             System.out.println("------------------------");
             System.out.println("0. Sair");
             System.out.println("________________________");
@@ -53,7 +53,9 @@ public class InterfaceDoSistema {
                 "Tente novamente..." + System.lineSeparator());
                 return false;
             }
-            System.out.println(v);
+            System.out.println(v + System.lineSeparator());
+            System.out.println("Pressione ENTER para continuar...");
+            sc.nextLine();
             return true;
         }
         
@@ -75,6 +77,9 @@ public class InterfaceDoSistema {
             return false;
         } else if(tipoDaConsulta.equals("2") || tipoDaConsulta.equals("3") || tipoDaConsulta.equals("4")) {
             listaDaConsulta.forEach(veiculo -> System.out.println(veiculo));
+            System.out.println();
+            System.out.println("Pressione ENTER para continuar...");
+            sc.nextLine();
             return true;
         }
         
