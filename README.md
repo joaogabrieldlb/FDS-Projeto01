@@ -1,17 +1,8 @@
+## Desenvolvendo um projeto com uma equipe pequena
 
-Terceira Versao
+    ## Objetivo do trabalho:
+        Cada equipe, de 2 a 4 integrantes deverá desenvolver um sistema capaz de exibir a relação de veículos a venda em uma determinada loja. A interface do sistema pode ser “modo texto”. 
+        O menu deve oferecer quatro opções de consulta: por placa, por marca, por ano ou por tipo (passeio, utilitário, passageiros). As classes que armazenam as estruturas de dados podem ser vistas na figura abaixo.
+        A classe “CatalogoVeiculos” mantém a lista dos veículos que estão à venda. Por simplicidade a inicialização desta lista pode ser “hard coded” no construtor desta classe.
 
-## Getting Started
-
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-## Dependency Management
-
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+## Integrantes do grupo: Bruno Simm Alves, Joao Gabriel Dalla Lasta Bergamaschi e Rafael Dias Coll Oliveira
