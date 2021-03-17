@@ -12,4 +12,9 @@ public class VeiculoPasseio extends VeiculoImpl {
     public double getConsumoKmLt() {
         return this.consumoKmLt;
     }
+
+    @Override
+    public String toString(){
+        return super.toString() + "| Consumo Km/Litro: "+ this.consumoKmLt;
+    }
 }

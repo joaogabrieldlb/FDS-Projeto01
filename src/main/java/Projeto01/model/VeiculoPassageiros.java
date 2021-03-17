@@ -15,4 +15,9 @@ public class VeiculoPassageiros extends VeiculoImpl {
     public void setNroPass(int nroPass) {
         this.nroPass = nroPass;
     }
+
+    @Override
+    public String toString(){
+        return super.toString() + "| Numero Passageiros: "+ this.nroPass;
+    }
 }
