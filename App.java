@@ -16,5 +16,5 @@ public class App{
         System.out.println("Dados do veiculo depois de percorrer 250Km:");
         System.out.println(v);
         System.out.println("----------------");
-        }
+    }
 }
