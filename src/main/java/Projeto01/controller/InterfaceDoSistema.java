@@ -69,7 +69,7 @@ public class InterfaceDoSistema {
             listaDaConsulta = consultaPorTipo();
         }
         
-        if(listaDaConsulta.isEmpty() && tipoDaConsulta.equals("2") || tipoDaConsulta.equals("3") || tipoDaConsulta.equals("4")) {
+        if(listaDaConsulta.isEmpty() && (tipoDaConsulta.equals("2") || tipoDaConsulta.equals("3") || tipoDaConsulta.equals("4"))) {
             System.out.println("Erro: Nenhum veículo foi encontrado no sistema!" + System.lineSeparator() +
             "Tente novamente..." + System.lineSeparator());
             return false;
