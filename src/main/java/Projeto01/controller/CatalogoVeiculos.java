@@ -1,6 +1,7 @@
 package src.main.java.Projeto01.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,20 +37,20 @@ public class CatalogoVeiculos {
     }
 
     public List<Veiculo> consultaPorMarca(String marca){
-        return veiculos.stream()
-            .filter(f -> f.getMarca().equals(marca))
-            .collect(Collectors.toList());
+        return Collections.unmodifiableList(veiculos.stream()
+        .filter(f -> f.getMarca().equals(marca))
+        .collect(Collectors.toList()));
     }
 
     public List<Veiculo> consultaPorAno(int ano){
-        return veiculos.stream()
+        return Collections.unmodifiableList(veiculos.stream()
             .filter(f -> f.getAno() == ano)
-            .collect(Collectors.toList());
+            .collect(Collectors.toList()));
     }
 
     public List<Veiculo> consultaPorTipo(String tipo){
-        return veiculos.stream()
+        return Collections.unmodifiableList(veiculos.stream()
             .filter(f -> f.getClass().getSimpleName().equals(tipo))
-            .collect(Collectors.toList());
+            .collect(Collectors.toList()));
     }
 }
